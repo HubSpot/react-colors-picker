@@ -22,10 +22,14 @@ class Example extends React.Component {
     return (
       <div>
         <h1>React Color Picker</h1>
+        <div className="example">
         <h3>Simple</h3>
-        {this.renderSimple()}
+          {this.renderSimple()}
+        </div>
+        <div className="example">
         <h3>Full Featured</h3>
-        {this.renderFullFeatured()}
+          {this.renderFullFeatured()}
+        </div>
       </div>
     )
   }

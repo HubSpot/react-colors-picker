@@ -1,6 +1,7 @@
 .#{$prefixClass}-panel-preview
   height: 30px
   width: 30px
+  display: inline-block
   position: relative
   overflow: hidden
   border-radius: 2px
@@ -17,3 +18,9 @@
 
   input[type=color]
     opacity: 0
+
+.#{$prefixClass}-panel div.favorites
+
+  .#{$prefixClass}-panel-preview
+    margin-right: $spacing
+    margin-bottom: $spacing

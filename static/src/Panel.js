@@ -135,6 +135,22 @@ export default class Panel extends React.Component {
     );
   }
 
+  renderFavorites() {
+    const favorites = this.props.favorites.map((f, counter) => {
+      const style = {backgroundColor: f};
+      return (
+        <span
+          key={"favorite-" + counter}
+          className={this.props.prefixCls + '-preview'}
+          style={style}
+        />
+      );
+    });
+    return (
+      <div className="favorites">{favorites}</div>
+    )
+  }
+
   render() {
     const prefixCls = this.props.prefixCls;
     const hsv = this.state.hsv;
@@ -148,6 +164,7 @@ export default class Panel extends React.Component {
         tabIndex="0"
         >
         <div className={prefixCls + '-' + ('inner')}>
+          {this.props.favorites.length > 0 && this.renderFavorites()}
           <Board
             rootPrefixCls={prefixCls}
             hsv={hsv}

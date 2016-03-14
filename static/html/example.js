@@ -18,6 +18,12 @@ class Example extends React.Component {
     );
   }
 
+  renderWithFavorites() {
+    return (
+      <ReactColorPicker color="#006699" favorites={['#333333', '#1F9900', '#71C9AD', '#333333', '#1F9900', '#71C9AD', '#333333', '#1F9900', '#71C9AD']} />
+    );
+  }
+
   render() {
     return (
       <div>
@@ -26,9 +32,15 @@ class Example extends React.Component {
         <h3>Simple</h3>
           {this.renderSimple()}
         </div>
+
         <div className="example">
         <h3>Full Featured</h3>
           {this.renderFullFeatured()}
+        </div>
+
+        <div className="example">
+          <h3>With Favorites</h3>
+          {this.renderWithFavorites()}
         </div>
       </div>
     )

@@ -5,6 +5,12 @@ import {getRenderOutput} from 'react-utils/testing/ShallowRenderUtils';
 
 describe('Colorpicker', () => {
   it('renders', () => {
-    getRenderOutput(<ColorPicker />);
+    const picker = getRenderOutput(<ColorPicker />);
+    expect(picker.props.className).toContain('react-colorpicker hex-only');
+  });
+
+  it('full featured', () => {
+    const picker = getRenderOutput(<ColorPicker hexOnly={false} includeAlpha={true} />);
+    expect(picker.props.className).toContain('with-alpha');
   })
-})
+});

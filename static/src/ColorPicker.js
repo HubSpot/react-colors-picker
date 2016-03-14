@@ -118,6 +118,8 @@ export default class ColorPicker extends React.Component {
         <ColorPickerPanel
         ref={this.savePickerPanelRef}
         defaultColor={this.state.color}
+        includeAlpha={this.props.includeAlpha}
+        hexOnly={this.props.hexOnly}
         alpha={this.state.alpha}
         prefixCls={this.props.prefixCls + '-panel'}
         onChange={this.onChange}
@@ -148,6 +150,12 @@ export default class ColorPicker extends React.Component {
     if (state.open) {
       classes.push(props.prefixCls + '-open');
     }
+    if (this.props.includeAlpha) {
+      classes.push('with-alpha');
+    }
+    if (this.props.hexOnly) {
+      classes.push('hex-only');
+    }
 
     return (
       <span className={classes.join(' ')}>
@@ -175,6 +183,8 @@ ColorPicker.propTypes = {
 
 ColorPicker.defaultProps = {
   defaultColor: '#F00',
+  includeAlpha: false,
+  hexOnly: true,
   defaultAlpha: 100,
   onChange() {},
   onOpen() {},

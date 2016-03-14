@@ -3,7 +3,6 @@
 import React, { PropTypes }from 'react';
 import ReactDOM from 'react-dom';
 import ColorPickerPanel from './Panel';
-import placements from './placements';
 
 function refFn(field, component) {
   this[field] = component;
@@ -171,6 +170,8 @@ ColorPicker.propTypes = {
   // can custom
   color: PropTypes.string,
   alpha: PropTypes.number,
+  hexOnly: PropTypes.bool,
+  includeAlpha: PropTypes.bool,
   onChange: PropTypes.func,
   onOpen: PropTypes.func,
   onClose: PropTypes.func,

@@ -7,6 +7,7 @@ import Preview from './Preview';
 import Ribbon from './Ribbon';
 import Alpha from './Alpha';
 import Params from './Params';
+import typeColor from './utils/validateColor';
 
 function noop() {
 }
@@ -187,8 +188,6 @@ export default class Panel extends React.Component {
     );
   }
 }
-
-import typeColor from './utils/validationColor';
 
 Panel.propTypes = {
   defaultAlpha: PropTypes.number,

@@ -10,12 +10,12 @@
     }
   },
   "deps": {
-    "react-utils": 2
+    "react-utils": 2,
+    "common_assets": 2
   },
   "devDeps": {
     "HeadJS": 2,
     "StyleGuideUI": 3,
-    "common_assets": 2,
     "jasmine": 3,
     "jasmine-runner": 1,
     "Yuno": 1

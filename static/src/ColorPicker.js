@@ -3,14 +3,9 @@
 import React, { PropTypes }from 'react';
 import ReactDOM from 'react-dom';
 import ColorPickerPanel from './Panel';
-import placements from './placements';
 
 function refFn(field, component) {
   this[field] = component;
-}
-
-function prevent(e) {
-  e.preventDefault();
 }
 
 export default class ColorPicker extends React.Component {
@@ -120,6 +115,7 @@ export default class ColorPicker extends React.Component {
         defaultColor={this.state.color}
         includeAlpha={this.props.includeAlpha}
         hexOnly={this.props.hexOnly}
+        favorites={this.props.favorites}
         alpha={this.state.alpha}
         prefixCls={this.props.prefixCls + '-panel'}
         onChange={this.onChange}
@@ -171,6 +167,9 @@ ColorPicker.propTypes = {
   // can custom
   color: PropTypes.string,
   alpha: PropTypes.number,
+  hexOnly: PropTypes.bool,
+  includeAlpha: PropTypes.bool,
+  favorites: PropTypes.array,
   onChange: PropTypes.func,
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
@@ -185,6 +184,7 @@ ColorPicker.defaultProps = {
   defaultColor: '#F00',
   includeAlpha: false,
   hexOnly: true,
+  favorites: [],
   defaultAlpha: 100,
   onChange() {},
   onOpen() {},

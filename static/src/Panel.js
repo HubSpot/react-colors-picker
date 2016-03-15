@@ -1,12 +1,14 @@
 'use es6';
 
 import React, {PropTypes} from 'react';
+import {partial} from 'underscore';
 import Colr from 'colr';
 import Board from './Board';
 import Preview from './Preview';
 import Ribbon from './Ribbon';
 import Alpha from './Alpha';
 import Params from './Params';
+import typeColor from './utils/validateColor';
 
 function noop() {
 }
@@ -115,6 +117,10 @@ export default class Panel extends React.Component {
     }, 100);
   }
 
+  onClickFavorite = (color) => {
+    this.onChange(Colr.fromHex(color).toHsvObject());
+  }
+
   getHexColor(hsv) {
     return colr.fromHsvObject(hsv || this.state.hsv).toHex();
   }
@@ -134,6 +140,23 @@ export default class Panel extends React.Component {
     );
   }
 
+  renderFavorites() {
+    const favorites = this.props.favorites.map((f, counter) => {
+      const style = {backgroundColor: f};
+      return (
+        <span
+          key={'favorite-' + counter}
+          className={this.props.prefixCls + '-preview'}
+          style={style}
+          onClick={partial(this.onClickFavorite, f)}
+        />
+      );
+    });
+    return (
+      <div className="favorites">{favorites}</div>
+    );
+  }
+
   render() {
     const prefixCls = this.props.prefixCls;
     const hsv = this.state.hsv;
@@ -147,6 +170,7 @@ export default class Panel extends React.Component {
         tabIndex="0"
         >
         <div className={prefixCls + '-' + ('inner')}>
+          {this.props.favorites.length > 0 && this.renderFavorites()}
           <Board
             rootPrefixCls={prefixCls}
             hsv={hsv}
@@ -188,12 +212,12 @@ export default class Panel extends React.Component {
   }
 }
 
-import typeColor from './utils/validationColor';
-
 Panel.propTypes = {
   defaultAlpha: PropTypes.number,
   defaultColor: typeColor,
-  // can custom
+  hexOnly: PropTypes.bool,
+  includeAlpha: PropTypes.bool,
+  favorites: PropTypes.array,
   prefixCls: PropTypes.string,
   color: typeColor,
   alpha: PropTypes.number,

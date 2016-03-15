@@ -9,8 +9,13 @@
       "optional": ["es7.decorators", "es7.objectRestSpread", "es7.classProperties"]
     }
   },
-  "deps": {},
+  "deps": {
+    "react-utils": 2
+  },
   "devDeps": {
+    "HeadJS": 2,
+    "StyleGuideUI": 3,
+    "common_assets": 2,
     "jasmine": 3,
     "jasmine-runner": 1,
     "Yuno": 1
@@ -18,6 +23,9 @@
   "runtimeDeps": {
     "react": 5,
     "react-dom": 5
+  },
+  "jasmine": {
+    "specRunner": "react-colors-picker/static/test/test.html"
   },
   "ignore": [
     "*/*/_*.sass",

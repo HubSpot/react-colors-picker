@@ -1,0 +1,17 @@
+extend StyleGuideUI/static/html/base-no-nav
+
+block navigation
+block start
+
+append head
+  insert_bundle HeadJS/static/bundles/standard-head.js
+  insert_bundle jasmine/static/js/all-jasmine-libs.js
+
+append body
+  insert_bundle jasmine/static/vendor/jasmine-2.2.0/jasmine.css
+  insert_bundle Yuno/static/bundles/project.js
+  insert_bundle react-colors-picker/static/test/specs.js
+  insert_bundle react-colors-picker/static/bundles/project.js
+  insert_bundle jasmine-runner/static/runner.js
+  script.
+    hubspot.require(['jasmine-runner/runner'], function (runner) { runner.runModules(); });

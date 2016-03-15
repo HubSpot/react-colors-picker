@@ -1,11 +1,13 @@
 .#{$prefixClass}-panel-preview
   height: 30px
   width: 30px
+  display: inline-block
   position: relative
   overflow: hidden
   border-radius: 2px
   box-shadow: 0 0 2px #808080 inset
   background-image: url('data:image/pngbase64,R0lGODdhCgAKAPAAAOXl5f///ywAAAAACgAKAEACEIQdqXt9GxyETrI279OIgwIAOw==')
+  cursor: pointer
 
   span,
   input[type=color]
@@ -17,3 +19,9 @@
 
   input[type=color]
     opacity: 0
+
+.#{$prefixClass}-panel div.favorites
+
+  .#{$prefixClass}-panel-preview
+    margin-right: $spacing
+    margin-bottom: $spacing

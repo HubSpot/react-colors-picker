@@ -145,7 +145,7 @@ export default class Panel extends React.Component {
       const style = {backgroundColor: f};
       return (
         <span
-          key={"favorite-" + counter}
+          key={'favorite-' + counter}
           className={this.props.prefixCls + '-preview'}
           style={style}
           onClick={partial(this.onClickFavorite, f)}
@@ -154,7 +154,7 @@ export default class Panel extends React.Component {
     });
     return (
       <div className="favorites">{favorites}</div>
-    )
+    );
   }
 
   render() {
@@ -215,7 +215,9 @@ export default class Panel extends React.Component {
 Panel.propTypes = {
   defaultAlpha: PropTypes.number,
   defaultColor: typeColor,
-  // can custom
+  hexOnly: PropTypes.bool,
+  includeAlpha: PropTypes.bool,
+  favorites: PropTypes.array,
   prefixCls: PropTypes.string,
   color: typeColor,
   alpha: PropTypes.number,

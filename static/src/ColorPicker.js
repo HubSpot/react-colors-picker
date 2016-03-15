@@ -8,10 +8,6 @@ function refFn(field, component) {
   this[field] = component;
 }
 
-function prevent(e) {
-  e.preventDefault();
-}
-
 export default class ColorPicker extends React.Component {
   constructor(props) {
     super(props);

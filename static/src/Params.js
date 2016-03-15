@@ -248,6 +248,7 @@ Params.propTypes = {
   onChange: React.PropTypes.func,
   hsv: React.PropTypes.object,
   alpha: React.PropTypes.number,
+  hexOnly: React.PropTypes.bool,
   rootPrefixCls: React.PropTypes.string,
   onAlphaChange: React.PropTypes.func,
   mode: React.PropTypes.oneOf(modesMap),

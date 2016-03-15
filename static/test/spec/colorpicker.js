@@ -23,5 +23,5 @@ describe('Colorpicker', () => {
     const favoritesEl = pickerEl.querySelector('.favorites');
     expect(favoritesEl).toBeDefined();
     expect(favoritesEl.querySelectorAll('.react-colorpicker-panel-preview').length).toBe(3);
-  })
+  });
 });

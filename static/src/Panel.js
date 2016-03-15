@@ -1,6 +1,7 @@
 'use es6';
 
 import React, {PropTypes} from 'react';
+import {partial} from 'underscore';
 import Colr from 'colr';
 import Board from './Board';
 import Preview from './Preview';
@@ -116,6 +117,10 @@ export default class Panel extends React.Component {
     }, 100);
   }
 
+  onClickFavorite = (color) => {
+    this.onChange(Colr.fromHex(color).toHsvObject());
+  }
+
   getHexColor(hsv) {
     return colr.fromHsvObject(hsv || this.state.hsv).toHex();
   }
@@ -143,6 +148,7 @@ export default class Panel extends React.Component {
           key={"favorite-" + counter}
           className={this.props.prefixCls + '-preview'}
           style={style}
+          onClick={partial(this.onClickFavorite, f)}
         />
       );
     });

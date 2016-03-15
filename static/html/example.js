@@ -20,7 +20,11 @@ class Example extends React.Component {
 
   renderWithFavorites() {
     return (
-      <ReactColorPicker color="#006699" favorites={['#333333', '#1F9900', '#71C9AD', '#333333', '#1F9900', '#71C9AD', '#333333', '#1F9900', '#71C9AD']} />
+      <ReactColorPicker
+        color="#006699"
+        favorites={['#333333', '#1F9900', '#71C9AD', '#333333', '#1F9900', '#71C9AD', '#333333', '#1F9900', '#71C9AD']}
+        onChange={v => console.log(v)}
+      />
     );
   }
 

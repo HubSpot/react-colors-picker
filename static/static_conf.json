@@ -24,6 +24,9 @@
     "react": 5,
     "react-dom": 5
   },
+  "jasmine": {
+    "specRunner": "react-colors-picker/static/test/test.html"
+  },
   "ignore": [
     "*/*/_*.sass",
     "*/*/_*.scss"
